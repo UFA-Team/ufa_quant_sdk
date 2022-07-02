@@ -1,8 +1,9 @@
+from math import ceil
 from apis.trade import get_cash_avaliable, get_orders, get_positions, get_total_asset
 from utils.logger_tools import get_general_logger
 from utils.thread_tools import IntervalThread
 from utils import abspath
-from config import STRATEGY_NAME, STRATEGY_FREQUENCY, API_KEY
+from config import STRATEGY_NAME, STRATEGY_INTERVAL, API_KEY
 import importlib
 import time
 
@@ -49,12 +50,12 @@ class StrategyExecutor:
     def run(self):
 
         logger.info("Initializing...")
-        self.monitor_thread = IntervalThread(interval=STRATEGY_FREQUENCY, target=self.monitor)
+        self.monitor_thread = IntervalThread(interval=ceil(STRATEGY_INTERVAL * 60), target=self.monitor)
         self.monitor_thread.start()
 
         time.sleep(5)
 
-        self.strategy_thread = IntervalThread(interval=STRATEGY_FREQUENCY, target=self.strategy)
+        self.strategy_thread = IntervalThread(interval=ceil(STRATEGY_INTERVAL * 60), target=self.strategy)
         self.strategy_thread.start()
 
         self.monitor_thread.join()

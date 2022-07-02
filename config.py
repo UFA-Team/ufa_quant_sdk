@@ -1,5 +1,8 @@
 API_KEY = "gAAAAABiwD3vda_2Pm9ztMmWZziJl2-KLSGrlpzDvDhdqiHkZkyUh0M-Kt298IXDMWKcjMQo5yGwufsMuBaKYf-MMpDpvhTllY6svtBGDIaWovqO7Wl20oASBzPaC68xEXi0ifpJhccBMAOq6MfbBba9WuZFQcUNBHy06K9G5CBsA_6kwjGvYQXGkoeRHeEfRHhgdH0Ug-Is-CisRZBPBcW5PT8Zhf1OaS7Jacmbjd-v-pX_Yle-XQA="
 
+# 与文件名称相符
 STRATEGY_NAME = "example_strat"
-STRATEGY_FREQUENCY = 10
+
+# 策略运行间隔的分钟
+STRATEGY_INTERVAL = 1
 

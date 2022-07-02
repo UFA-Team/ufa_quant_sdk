@@ -1,6 +1,6 @@
 from apis import _get_request, _post_request
-# FINANCE_URL = "http://ufacareer.com/finance/api/"
-FINANCE_URL = "http://192.168.31.210:10987/api/"
+from utils import pprint
+FINANCE_URL = "http://ufacareer.com/finance/api/"
 
 ROUTE_SYMBOL_LIST = "general/symbols"
 def get_symbol_list():
@@ -22,9 +22,4 @@ def get_kline(symbol, start, end, tf='1d'):
 
 
 if __name__ == '__main__':
-    from pprint import pprint
-    # pprint(get_symbol_list())
-
-    # pprint(get_index_list())
-
-    pprint(get_kline("SZ.000001", "20220301", "20220310"))
+    pprint(get_kline("SZ.000001", "2022-03-01 00:00:00", "2022-03-10 00:00:00"))

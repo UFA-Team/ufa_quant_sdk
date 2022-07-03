@@ -1,34 +1,58 @@
-from apis import _get_request, _post_request
+from apis import _post_request_data
 from utils import pprint
 from config import API_KEY
 TRADE_URL = "http://ufacareer.com/trade/api/"
 
+
+# ---------- 账户 ACCOUNT ---------- #
+
+# 查询余额
 ROUTE_ACCOUNT_CASH = "account/cash"
 def get_cash_avaliable():
-    return _post_request(TRADE_URL, ROUTE_ACCOUNT_CASH, {'API_KEY': API_KEY}).json()['data']
+    return _post_request_data(TRADE_URL, ROUTE_ACCOUNT_CASH, {'API_KEY': API_KEY})
 
+# 查询当前总资产
 ROUTE_ACCOUNT_TOTAL_ASSET = "account/asset_total"
 def get_total_asset():
-    return _post_request(TRADE_URL, ROUTE_ACCOUNT_TOTAL_ASSET, {'API_KEY': API_KEY}).json()['data']
+    return _post_request_data(TRADE_URL, ROUTE_ACCOUNT_TOTAL_ASSET, {'API_KEY': API_KEY})
 
+# 查询持仓
 ROUTE_ACCOUNT_POSITIONS = "account/positions"
 def get_positions():
-    return _post_request(TRADE_URL, ROUTE_ACCOUNT_POSITIONS, {'API_KEY': API_KEY}).json()['data']
+    return _post_request_data(TRADE_URL, ROUTE_ACCOUNT_POSITIONS, {'API_KEY': API_KEY})
 
+# 查询资产曲线
+ROUTE_ACCOUNT_ASSET_HIST = "account/asset_hist"
+def get_asset_hist(days):
+    return _post_request_data(TRADE_URL, ROUTE_ACCOUNT_POSITIONS, {'API_KEY': API_KEY, 'days': days})
+
+
+# ---------- 交易 TRADE ---------- #
+
+# 查询订单
 ROUTE_ACCOUNT_ORDERS = "trade/orders"
 def get_orders(status="open"):
-    return _post_request(TRADE_URL, ROUTE_ACCOUNT_ORDERS, {'API_KEY': API_KEY, 'status': status}).json()['data']
+    return _post_request_data(TRADE_URL, ROUTE_ACCOUNT_ORDERS, {'API_KEY': API_KEY, 'status': status})
 
+# 下单
 ROUTE_MAKE_ORDER = "trade/make_order"
 def make_order(symbol, order_type, side, amount, order_price=None):
-    return _post_request(TRADE_URL, ROUTE_MAKE_ORDER, {
+    return _post_request_data(TRADE_URL, ROUTE_MAKE_ORDER, {
         'API_KEY': API_KEY,
         'symbol': symbol,
         'side': side,
         'order_type': order_type,
         'amount': amount,
         'order_price': order_price
-    }).json()['data']
+    })
+
+# 撤单
+ROUTE_CANCEL_ORDER = 'trade/cancel_order'
+def cancel_order(order_id):
+    return _post_request_data(TRADE_URL, ROUTE_CANCEL_ORDER, {
+        'API_KEY': API_KEY,
+        'order_id': order_id,
+    })
 
 if __name__ == '__main__':
     pprint(get_cash_avaliable())

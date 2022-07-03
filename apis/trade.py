@@ -24,7 +24,7 @@ def get_positions():
 # 查询资产曲线
 ROUTE_ACCOUNT_ASSET_HIST = "account/asset_hist"
 def get_asset_hist(days):
-    return _post_request_data(TRADE_URL, ROUTE_ACCOUNT_POSITIONS, {'API_KEY': API_KEY, 'days': days})
+    return _post_request_data(TRADE_URL, ROUTE_ACCOUNT_ASSET_HIST, {'API_KEY': API_KEY, 'days': days})
 
 
 # ---------- 交易 TRADE ---------- #

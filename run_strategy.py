@@ -14,7 +14,7 @@ class AccountContext:
     def __init__(self) -> None:
         self.cash_avaliable = 0
         self.total_asset = 0
-        self.positions = []
+        self.positions = {"available": [], "locked": [], "new": []}
         self.open_orders = []
     
     def update(self):

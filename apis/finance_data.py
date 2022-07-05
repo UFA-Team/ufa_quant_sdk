@@ -1,6 +1,8 @@
 from apis import _get_request_data, _post_request_data
 from utils import pprint
-FINANCE_URL = "http://ufacareer.com/finance/api/"
+
+# 量化开赛前会更新API BASE-URL
+FINANCE_URL = ""
 
 
 # ---------- 通用行情 GENERAL ---------- #
@@ -73,5 +75,5 @@ def get_index_info_list(symbols):
     return _post_request_data(FINANCE_URL, ROUTE_INDEX_INFO_LIST, {'symbols': symbols})
 
 
-if __name__ == '__main__':
-    pprint(get_kline("SZ.000001", "2022-03-01 00:00:00", "2022-03-10 00:00:00"))
+# if __name__ == '__main__':
+#     pprint(get_kline("SZ.000001", "2022-03-01 00:00:00", "2022-03-10 00:00:00"))

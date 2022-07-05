@@ -1,7 +1,9 @@
 from apis import _post_request_data
 from utils import pprint
 from config import API_KEY
-TRADE_URL = "http://ufacareer.com/trade/api/"
+
+# 量化开赛前会更新API BASE-URL
+TRADE_URL = ""
 
 
 # ---------- 账户 ACCOUNT ---------- #
@@ -54,7 +56,7 @@ def cancel_order(order_id):
         'order_id': order_id,
     })
 
-if __name__ == '__main__':
-    pprint(get_cash_avaliable())
-    pprint(get_positions())
-    pprint(get_orders())
+# if __name__ == '__main__':
+#     pprint(get_cash_avaliable())
+#     pprint(get_positions())
+#     pprint(get_orders())

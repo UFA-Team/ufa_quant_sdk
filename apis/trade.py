@@ -1,10 +1,12 @@
 from apis import _post_request_data
 from utils import pprint
-from config import API_KEY
+from config import API_KEY, ENVIRONMENT
 
 # 量化开赛前会更新API BASE-URL
-TRADE_URL = ""
+TEST_TRADE_URL = "https://ufacareer.com/test_trade/api/"
+PROD_TRADE_URL = "https://ufacareer.com/trade/api/"
 
+TRADE_URL = PROD_TRADE_URL if ENVIRONMENT == 'prod' else TEST_TRADE_URL
 
 # ---------- 账户 ACCOUNT ---------- #
 

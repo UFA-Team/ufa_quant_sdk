@@ -2,7 +2,7 @@ from apis import _get_request_data, _post_request_data
 from utils import pprint
 
 # 量化开赛前会更新API BASE-URL
-FINANCE_URL = ""
+FINANCE_URL = "https://ufacareer.com/finance/api/"
 
 
 # ---------- 通用行情 GENERAL ---------- #

@@ -9,8 +9,6 @@ setup(name=PROJECT_NAME,
       license='MIT',
       packages=find_packages(),
       install_requires=[
-          'pandas==1.4.1',
-          'numpy==1.22.3',
           'simplejson==3.17.6',
           'requests==2.27.1',
       ],

@@ -6,6 +6,7 @@ from config import STRATEGY_NAME
 from run_strategy import AccountContext
 from utils import abspath
 from utils.logger_tools import get_general_logger
+from pprint import pprint
 
 logger = get_general_logger(STRATEGY_NAME, path=abspath("logs"))
 
@@ -23,8 +24,9 @@ def main(context: AccountContext):
         kline_end.strftime("%Y-%m-%d %H:%M:%S"),
         "1d",  # 天级
     )
+    # pprint(kline)
     if len(kline) == 0:
-        logger.warn(f"未查询到K线信息，请检查股票代码({symbol})或时间是否正确。若无误，请联系管理员。")
+        logger.warning(f"未查询到K线信息，请检查股票代码({symbol})或时间是否正确。若无误，请联系管理员。")
         return
 
     # 获取当前持仓
